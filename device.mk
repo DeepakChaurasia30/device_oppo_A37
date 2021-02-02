@@ -35,6 +35,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libtinyxml \
     memtrack.msm8916 \
+    liboverlay \
     copybit.msm8916
 
 # RenderScript HAL
@@ -47,7 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
      debug.enable.sglscale=1 \
      debug.hwui.use_buffer_age=false \
      debug.mdpcomp.idletime=600 \
-     ro.opengles.version=196610 \
+     ro.opengles.version=196608 \
      persist.hwc.mdpcomp.enable=true \
      sys.hwc.gpu_perf_mode=1
 
@@ -136,6 +137,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
     init.qcom.bt.sh \
     libbt-vendor
     
@@ -150,8 +153,14 @@ PRODUCT_PACKAGES += \
     timekeep \
     TimeKeep
 
+# APEX
 PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v28/arm/arch-arm-armv7-a-neon/shared/vndk-sp/libbase.so:$(TARGET_COPY_OUT_VENDOR)/lib/libbase-v28.so
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+
+# Protobuf
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v28/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v28.so \
+    prebuilts/vndk/v28/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-full-v28.so
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -214,7 +223,7 @@ PRODUCT_COPY_FILES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
-# Properties
+# Bluetooth Properties
 PRODUCT_PROPERTY_OVERRIDES += \
   vendor.qcom.bluetooth.soc=smd \
   ro.bluetooth.hfp.ver=1.7 \
@@ -250,9 +259,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
-# Encryption
+# CryptfsHW
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0-base
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -276,14 +285,14 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Media
-PRODUCT_PACKAGES += \
-  mm.enable.smoothstreaming=true \
-  media.aac_51_output_enabled=true \
+PRODUCT_PROPERTY_OVERRIDES += \
+    mm.enable.smoothstreaming=true \
+    media.aac_51_output_enabled=true 
 
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -307,10 +316,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.core_ctl_min_cpu=0 \
      ro.core_ctl_max_cpu=4
 
-# IRSC
+# IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
+    
 # First api level, device has been commercially launched
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=19
@@ -335,7 +344,8 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -363,7 +373,8 @@ PRODUCT_COPY_FILES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+   persist.fuse_sdcard=true
+
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -376,24 +387,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    libwpa_client \
+    android.hardware.wifi@1.0-service.legacy \
     hostapd \
-    wpa_supplicant \
+    wcnss_service \
+    wpa_supplicant
+
+PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
-
-PRODUCT_PACKAGES += \
-    wcnss_service \
-    libwcnss_qmi
-
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service
     
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # USB HAL
 PRODUCT_PACKAGES += \
@@ -435,10 +442,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.ecc_hard_count=1 \
     rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
     ril.subscription.types=RUIM \
-    telephony.lteOnGsmDevice=1
+    telephony.lteOnCdmaDevice=1
     
 # Volte
-PRODUCT_PACKAGES += \    
+PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1
     
 # Seccomp

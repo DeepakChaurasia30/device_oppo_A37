@@ -111,7 +111,7 @@
 /dev/jpeg1                0660   system     camera
 /dev/jpeg2                0660   system     camera
 /dev/jpeg3                0660   system     camera
-/dev/adsprpc-smd          0664   system     system
+/dev/adsprpc-smd          0660   system     media
 /dev/msm_camera/*         0660   system     camera
 /dev/gemini/              0660   system     camera
 /dev/mercury0             0660   system     camera
@@ -120,10 +120,9 @@
 /dev/msm_vidc_dec_sec     0660   system     audio
 /dev/msm_vidc_enc         0660   system     audio
 /dev/msm_rotator          0660   system     system
-/dev/adsprpc-smd          0664   system     system
+/dev/hw_random            0660   system     system
 
 #permissions for audio
-/dev/audio_slimslave      0660   system     audio
 /dev/msm_qcelp            0660   system     audio
 /dev/msm_evrc             0660   system     audio
 /dev/msm_wma              0660   system     audio
@@ -139,7 +138,7 @@
 /dev/msm_amrnb_in         0640   system     audio
 /dev/msm_a2dp_in          0660   system     audio
 /dev/msm_ac3              0660   system     audio
-/dev/msm_audio_cal        0660   system     audio
+/dev/msm_acdb             0660   system     audio
 /dev/msm_cad              0660   system     audio
 /dev/msm_fm               0660   system     audio
 /dev/msm_mvs              0660   system     audio
@@ -218,7 +217,4 @@
 /dev/ramdump*             0640   system     system
 
 # Add device block for FRP
-/dev/block/platform/soc.0/7824900.sdhci/by-name/config    0660   system     system
-
-# Fingerprint sensor
-/dev/fpc1020		 0660	system	system
+/dev/block/bootdevice/by-name/config    0660   system     system
