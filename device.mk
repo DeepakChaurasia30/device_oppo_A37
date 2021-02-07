@@ -137,10 +137,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service \
-    init.qcom.bt.sh \
-    libbt-vendor
+    init.mmi.bt.sh
     
 # ANT+
 PRODUCT_PACKAGES += \
@@ -225,9 +222,12 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Bluetooth Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-  vendor.qcom.bluetooth.soc=smd \
-  ro.bluetooth.hfp.ver=1.7 \
-  ro.qualcomm.bt.hci_transport=smd 
+    bluetooth.hfp.client=1 \
+    vendor.qcom.bluetooth.soc=pronto \
+    ro.bluetooth.hfp.ver=1.6 \
+    ro.qualcomm.bt.hci_transport=smd \
+    ro.bluetooth.dun=true \
+    ro.bluetooth.sap=true 
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
