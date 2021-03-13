@@ -75,6 +75,9 @@ on post-fs-data
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
+        
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
     # Subsystem Restart
     # Venus
@@ -234,17 +237,14 @@ service charger /system/bin/charger
     seclabel u:r:charger:s0
 
 # start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
-    class main
+service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
+    class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
-on property:init.svc.media=restarting
-    restart qcamerasvr
-
-on property:init.svc.servicemanager=restarting
-    restart qcamerasvr
+on property:init.svc.vendor.qcamerasvr=running
+    restart media
 
 service qseecomd /system/vendor/bin/qseecomd
     class core
@@ -274,7 +274,7 @@ service ppd /system/vendor/bin/mm-pp-daemon
     user system
     socket pps stream 0660 system system
     group system graphics
-
+    
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 
@@ -292,9 +292,33 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
+    
+on property:sys.boot_completed=1
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.qcom
+    restart vendor.qcamerasvr    
 
 service wcnss-service /system/vendor/bin/wcnss_service
     class late_start
     user system
     group system wifi radio
     oneshot
+    
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
+
+on property:sys.shutdown.requested=*
+    stop vendor.per_proxy    
+    
+    

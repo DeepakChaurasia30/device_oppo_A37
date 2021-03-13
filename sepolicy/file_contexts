@@ -12,7 +12,6 @@
 /sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/blink          u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/grpfreq        u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/grppwm         u:object_r:sysfs_leds:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.a6000   u:object_r:hal_light_default_exec:s0
 
 # NV
 /data/opponvitems(/.*)?                                                                  u:object_r:nv_data_file:s0
@@ -28,3 +27,5 @@
 # DT2W
 /proc/touchpanel/double_tap_enable                                                       u:object_r:proc_touchpanel:s0
 
+# Bt
+/(vendor|system/vendor)/bin/init\.mmi\.bt\.sh               u:object_r:mmi_bt_sh_exec:s0
