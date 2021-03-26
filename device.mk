@@ -323,10 +323,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
+# Power
 PRODUCT_PACKAGES += \
-    power.msm8916
-
-PRODUCT_PACKAGES += \
+    power.msm8916 \
     android.hardware.power@1.0-impl \
     android.hardware.power@1.0-service
 
@@ -346,7 +345,7 @@ PRODUCT_COPY_FILES += \
     
 # First api level, device has been commercially launched
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.first_api_level=19
+    ro.product.first_api_level=22
 
 # HIDL
 PRODUCT_PACKAGES += \
