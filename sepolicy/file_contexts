@@ -1,5 +1,5 @@
 # Camera
-/data/cam_socket.*                                                       u:object_r:camera_socket:s0
+/data/cam_socket.*                                                        u:object_r:camera_socket:s0
 /sys/devices/soc\.0/78b6000\.i2c/i2c-0/0-0029/enable_ps_sensor            u:object_r:cam_sysfs:s0
 
 # Sensors
@@ -8,10 +8,10 @@
 /(vendor|system/vendor)/bin/psensord                                     u:object_r:sensor_init_exec:s0
 
 # Lights
-/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds(/.*)?     u:object_r:sysfs_leds:s0
-/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/blink          u:object_r:sysfs_leds:s0
-/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/grpfreq        u:object_r:sysfs_leds:s0
-/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/grppwm         u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds(/.*)?          u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/blink               u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/grpfreq             u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/[a-z0-9]+\.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/grppwm              u:object_r:sysfs_leds:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.msm8916     u:object_r:hal_light_default_exec:s0
 
 # NV
@@ -22,9 +22,19 @@
 /sys/devices(/platform)?/soc\.0/[a-z0-9]+\.qcom,opponvbk_sharedmem/uio/uio[0-9]+(/.*)?   u:object_r:sysfs_uio_file:s0
 
 # TimeKeep
-/sys/devices/soc\.0/qpnp-rtc-[0-9]/rtc/rtc0(/.*)?                                        u:object_r:sysfs_rtc:s0
-/(system/vendor|vendor)/bin/timekeep                                                     u:object_r:timekeep_exec:s0 
+/sys/devices/soc\.0/qpnp-rtc-[0-9]/rtc/rtc0(/.*)?            u:object_r:sysfs_rtc:s0
+/(system/vendor|vendor)/bin/timekeep                         u:object_r:timekeep_exec:s0 
 
 # DT2W
-/proc/touchpanel/double_tap_enable                                                       u:object_r:proc_touchpanel:s0
+/proc/touchpanel/double_tap_enable                 u:object_r:proc_touchpanel:s0
+
+
+# sysfs - battery/charger
+/sys/devices/battery\.[0-9]+/power_supply(/.*)?                                                    u:object_r:sysfs_batteryinfo:s0
+/sys/devices/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/max[a-z0-9]+-charger/power_supply(/.*)?       u:object_r:sysfs_batteryinfo:s0
+/sys/devices/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/power_supply(/.*)?                            u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/[a-z0-9]+-charger/power_supply(/.*)?   u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/i2c\.[0-9]+/i2c-[0-9]+/[0-9]+-[a-z0-9]+/power_supply/[a-z0-9]+-fuelgauge(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/[a-z0-9]+\.usb/power_supply(/.*)?                                              u:object_r:sysfs_batteryinfo:s0
+/sys/devices/msm_dwc3/power_supply(/.*)?                                                           u:object_r:sysfs_batteryinfo:s0
 
