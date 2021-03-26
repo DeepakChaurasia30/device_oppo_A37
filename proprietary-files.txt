@@ -150,16 +150,11 @@ vendor/lib/libqomx_jpegdec.so
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
 
-# DRM - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
-vendor/bin/qseecomd
+# DRM
+bin/qseecomd:vendor/bin/qseecomd
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
-vendor/lib/libGPreqcancel.so
-vendor/lib/libGPreqcancel_svc.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libqisl.so
 vendor/lib/libQSEEComAPI.so
-vendor/lib/librmp.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 
@@ -172,44 +167,22 @@ vendor/lib/libgeofence.so|bd34516de3c933d81267822716235c358ab6695d
 vendor/lib/libizat_core.so|8a948e4f2aa38463050c6399f04ecb38564689d6
 vendor/lib/liblbs_core.so|10caf0d54768114cd471c33a1e2dc6385d3c7707
 
-# Media - from LA.BR.1.2.9.1-02310-8x16.0
-lib/libmmosal.so
-lib/libmmparser_lite.so
-lib/vendor.qti.hardware.vpp@1.1.so
-vendor/lib/libAlacSwDec.so
-vendor/lib/libApeSwDec.so
+# Media
+vendor/lib/libFileMux.so
+vendor/lib/libFlacSwDec.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
-vendor/lib/libmmosal_proprietary.so
+vendor/lib/libmmosal.so
+vendor/lib/libmmrtpdecoder.so
+vendor/lib/libmmrtpencoder.so
 vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAlacDecSw.so
-vendor/lib/libOmxApeDecSw.so
 vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxMux.so
 vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/vendor.qti.hardware.vpp@1.1_vendor.so
 
-# Perf - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
-lib/libqti-perfd-client_system.so
-lib/libqti-util_system.so
-lib/libqti_performance.so
-lib/vendor.qti.hardware.perf@1.0.so
-vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
-vendor/bin/msm_irqbalance
-vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
-vendor/etc/perf/perfboostsconfig.xml
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-perfd.so
-vendor/lib/libqti-util.so
-vendor/lib/libqti-utils.so
-vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
-
-# Perf-IOP - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
-vendor/lib/hw/vendor.qti.hardware.iop@1.0-impl.so
-vendor/lib/libqti-iopd-client.so
-vendor/lib/libqti-iopd.so
-vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
+# Perf - from jalebi
+vendor/bin/perfd|5e31de336247378b0674b4d65494567ab76c190c
+vendor/lib/libqti-perfd-client.so|90b2007264bcda7fc706fd55becdea4c6b999233
 
 # Postprocessing - from LA.BR.1.2.9.1-02310-8x16.0
 bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
@@ -284,10 +257,10 @@ vendor/lib/libxml.so|8b9cae9b4d1525e7fea093d6a53f363c842f3076
 # STLport - from flo
 vendor/lib/libstlport.so|e61ef21decc21472e06eacc841e7d61bf68ca9f3
 
-# Thermal - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
-vendor/bin/thermal-engine
-vendor/lib/libthermalclient.so
-vendor/lib/libthermalioctl.so
+# Thermal - from jalebi
+vendor/bin/thermal-engine|5d7e03971fdc7f2e16c84a72430734bcb7328e82
+vendor/lib/libthermalclient.so|de4a1dc98dec535da16059f44229043952638c29
+vendor/lib/libthermalioctl.so|c32eca3eb450e9bb0a70f15878253b2dad48e5c7
 
 # Signed Venus (media) firmware - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
 etc/firmware/venus.b00:vendor/firmware/venus.b00
@@ -310,36 +283,35 @@ etc/firmware/tp/15399/15399_Limit_Biel.img:vendor/firmware/tp/15399_Limit_Biel.i
 etc/firmware/tp/15399/15399_Limit_Oflim.img:vendor/firmware/tp/15399_Limit_Oflim.img
 etc/firmware/tp/15399/15399_Limit_Truly.img:vendor/firmware/tp/15399_Limit_Truly.img
 
-# Graphics - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
+# Graphics - from channel-QPY30.52-2, paella-5.1.0
 vendor/lib/egl/eglsubAndroid.so
-vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/eglSubDriverAndroid.so |ddc18e828894c731aaa7fddfbf2e8d967ca221f3
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libESXEGL_adreno.so
 vendor/lib/egl/libESXGLESv1_CM_adreno.so
-vendor/lib/egl/libESXGLESv2_adreno.so
+vendor/lib/egl/libESXGLESv2_adreno.so |9ff96db5c8e741a68f13e1b332b3a2c59512372d
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/egl/libq3dtools_esx.so
 vendor/lib/egl/libQTapGLES.so
-vendor/lib/egl/libRBEGL_adreno.so
+vendor/lib/egl/libRBEGL_adreno.so |d1e8d57ca13187444b88dee758f007e8ab098ea1
 vendor/lib/egl/libRBGLESv1_CM_adreno.so
-vendor/lib/egl/libRBGLESv2_adreno.so
+vendor/lib/egl/libRBGLESv2_adreno.so |4840376a639fb6295669340dbb22feebeba6f9b9
 vendor/lib/libadreno_utils.so
 vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libc2d30-a4xx.so
-vendor/lib/libc2d30-a5xx.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libOpenCL.so
-vendor/lib/libpvr.so
-vendor/lib/libRSDriver_adreno.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
+vendor/lib/libRSDriver_adreno.so
+vendor/lib/libsc-a3xx.so
+vendor/lib/libscale.so
 
 # IMS -abhishek_hex-edit 
 vendor/lib/libimscamera_jni.so
