@@ -27,12 +27,6 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so |1e9063e72c57c421e5946630ed06b5631a891f
 
 # Camera-actuators
 vendor/lib/libactuator_dw9714.so
-vendor/lib/libactuator_dw9714_15035.so
-vendor/lib/libactuator_dw9714_15035_camcorder.so
-vendor/lib/libactuator_dw9714_15035_camera.so
-vendor/lib/libactuator_dw9714_15095.so
-vendor/lib/libactuator_dw9714_15095_camcorder.so
-vendor/lib/libactuator_dw9714_15095_camera.so
 vendor/lib/libactuator_dw9714_15399.so
 vendor/lib/libactuator_dw9714_15399_camcorder.so
 vendor/lib/libactuator_dw9714_15399_camera.so
@@ -184,25 +178,14 @@ vendor/lib/libOmxQcelp13Dec.so
 vendor/bin/perfd|5e31de336247378b0674b4d65494567ab76c190c
 vendor/lib/libqti-perfd-client.so|90b2007264bcda7fc706fd55becdea4c6b999233
 
-# Postprocessing - from LA.BR.1.2.9.1-02310-8x16.0
-bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
-etc/permissions/com.qti.snapdragon.sdk.display.xml
--framework/com.qti.snapdragon.sdk.display.jar
-lib/vendor.display.color@1.0.so
-lib/vendor.display.config@1.0.so
-lib/vendor.display.postproc@1.0.so
-lib/vendor.qti.hardware.qdutils_disp@1.0.so
-vendor/lib/libdisp-aba.so
-vendor/lib/libsd_sdk_display.so
-vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-vendor/lib/libmm-als.so
-vendor/lib/libmm-disp-apis.so
-vendor/lib/libmm-qdcm.so
-vendor/lib/vendor.display.color@1.0_vendor.so
-vendor/lib/vendor.display.config@1.0_vendor.so
-vendor/lib/vendor.display.postproc@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
+# Postprocessing - from jalebi
+bin/mm-pp-daemon:vendor/bin/mm-pp-daemon|56777bd6e5023b2d39efa3a3a7df11af3a06aa73
+vendor/lib/libdisp-aba.so|4445ff1e090b0122077823576ec4a38a3e8e2ae6
+vendor/lib/libmm-abl.so|a88a93ca967246b0c21df3ba6889b4b1e2a284ff
+vendor/lib/libmm-abl-oem.so|5940ead47b7ef85315d0ca0ad7ba126d2ac10b06
+vendor/lib/libmm-als.so|7ca49d1a2e9139182d4069b1f305312966da9983
+vendor/lib/libmm-disp-apis.so|342252fd53b5813cdd47a2bc01c91d62cdb21f1b
+vendor/lib/libmm-qdcm.so|00413d3c2e3b6a0b43f1a315af33592bec1d952c
 
 # Peripheral Manager - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
 vendor/bin/pm-proxy |274917293c81d099ca9b69ca8a683df90eab51b0
