@@ -155,9 +155,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    init.mmi.bt.sh
     
 # ANT+
 PRODUCT_PACKAGES += \
@@ -270,7 +267,6 @@ PRODUCT_PACKAGES += \
     init.qcom-common.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
-    init.recovery.qcom.rc \
     ueventd.qcom.rc \
     fstab.qcom \
     init.qcom.mem.sh \
