@@ -209,6 +209,9 @@ vendor/bin/pm-proxy |274917293c81d099ca9b69ca8a683df90eab51b0
 vendor/bin/pm-service |21efa0abe6793438492a84b5cb6feb12d8f3d529
 vendor/lib/libperipheral_client.so |7b1e4f556ea601102e130b3a98db0177c4d137f6
 
+# Battery
+vendor/bin/vm_bms
+
 # Qualcomm framework - from jalebi
 bin/irsc_util:vendor/bin/irsc_util|3e9ca860ef26dba7024812c378b6c5cd15b879aa
 etc/data/dsi_config.xml:vendor/etc/data/dsi_config.xml|0a8e28e484e0ca121651bf8c9d5617687ff2b796
