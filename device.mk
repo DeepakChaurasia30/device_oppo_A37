@@ -268,7 +268,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     ueventd.qcom.rc \
     fstab.qcom \
-    init.qcom.mem.sh \
     init.qcom.rc
 
 # For config.fs
