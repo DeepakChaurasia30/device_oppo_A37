@@ -187,11 +187,6 @@ vendor/lib/libmm-als.so|7ca49d1a2e9139182d4069b1f305312966da9983
 vendor/lib/libmm-disp-apis.so|342252fd53b5813cdd47a2bc01c91d62cdb21f1b
 vendor/lib/libmm-qdcm.so|00413d3c2e3b6a0b43f1a315af33592bec1d952c
 
-# Peripheral Manager - from msm8916_32 LA.BR.1.2.9.1-02310-8x16.0 
-vendor/bin/pm-proxy |274917293c81d099ca9b69ca8a683df90eab51b0
-vendor/bin/pm-service |21efa0abe6793438492a84b5cb6feb12d8f3d529
-vendor/lib/libperipheral_client.so |7b1e4f556ea601102e130b3a98db0177c4d137f6
-
 # Battery
 vendor/bin/vm_bms
 
