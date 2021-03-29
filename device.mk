@@ -75,18 +75,33 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.primary.msm8916 \
+    audiod \
     audio.a2dp.default \
+    audio.primary.msm8916 \
     audio.r_submix.default \
     audio.usb.default \
-    tinymix \
     libaudio-resampler \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcompostprocbundle \
-    android.hardware.audio@5.0-impl \
+    libvolumelistener \
+    tinymix
+    
+PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@5.0-impls
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.audio@5.0 \
+    android.hardware.audio.common@5.0 \
+    android.hardware.audio.common@5.0-util \
+    android.hardware.audio@5.0-impl \
+    android.hardware.audio.effect@5.0 \
+    android.hardware.audio.effect@5.0-impl
+    
+PRODUCT_PACKAGES += \
+    audio.bluetooth.default \
+    android.hardware.bluetooth.audio@2.0-impl        
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -118,7 +133,9 @@ PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/audio/acdbdata/QRD/QRD_General_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/QRD/QRD_General_cal.acdb \
    $(LOCAL_PATH)/audio/acdbdata/QRD/QRD_Global_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/QRD/QRD_Global_cal.acdb \
    $(LOCAL_PATH)/audio/acdbdata/QRD/QRD_Handset_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/QRD/QRD_Handset_cal.acdb \
-   $(LOCAL_PATH)/audio/acdbdata/QRD/QRD_Hdmi_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb \
+   $(LOCAL_PATH)/audio/acdbdata/QRD/QRD_Hdmi_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb 
+   
+PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
    $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
@@ -128,12 +145,7 @@ PRODUCT_COPY_FILES += \
    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml
-
+   
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
       af.fast_track_multiplier=1 \
@@ -150,11 +162,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
       vendor.voice.path.for.pcm.voip=true \
       ro.config.media_vol_steps=25 \
       ro.config.vc_call_vol_steps=7
-
+   
+# Permissions
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
-    
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
@@ -170,12 +185,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
-# Protobuf
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v28/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v28.so \
-    prebuilts/vndk/v28/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-full-v28.so
-
-# Permissions
+# Bluetooth
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
@@ -195,7 +205,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml
 
-# Camera
+# Camera-Prop
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false \
     persist.camera.hal.debug.mask=0
@@ -224,7 +234,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf
 
-# Permissions
+# GPS
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
 
@@ -300,7 +310,7 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libstagefrighthw
 
-# Media
+# Media-Prop
 PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true \
     media.aac_51_output_enabled=true 

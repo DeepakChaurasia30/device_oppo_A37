@@ -1,6 +1,5 @@
 # Camera
 /data/cam_socket.*                                                                       u:object_r:camera_socket:s0
-/(vendor|system/vendor)/bin/mm-qcamera-daemon                                            u:object_r:mm-qcamera-daemon_exec:s0
 
 # Sensors
 /sys/oppo_ftm/als_prox/.*                         u:object_r:sensor_calib_file:s0
