@@ -46,7 +46,6 @@ on post-fs-data
 
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
-    mkdir /persist/display 0770 system graphics
 
     # Create PERFD deamon related dirs
     mkdir /data/misc/perfd 2755 root system
@@ -64,20 +63,12 @@ on post-fs-data
 
     # OPPO NV items
     mkdir /data/opponvitems 0771 radio radio
-    
-    # Camera Recording
-    mkdir /dev/video
-    symlink /dev/video32 /dev/video/venus_dec
-    symlink /dev/video33 /dev/video/venus_enc
 
     setprop vold.post_fs_data_done 1
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-        
-on property:apexd.status=ready
-    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
     # Subsystem Restart
     # Venus
@@ -153,6 +144,8 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/srgb
 
     # Sensors calibration
+    chown system system /sys/oppo_ftm/accel/cali
+    chown system system /sys/oppo_ftm/als_prox/calibration
     chown system system /sys/oppo_ftm/als_prox/name
     chown system system /sys/oppo_ftm/als_prox/ps_enable
     chown system system /sys/oppo_ftm/als_prox/prox_raw
@@ -160,10 +153,8 @@ on boot
     chown system system /sys/oppo_ftm/als_prox/ps_thd
     chown system system /sys/oppo_ftm/als_prox/far_status
     chown system system /sys/oppo_ftm/als_prox/algo_wakeup
-    chown system system /sys/oppo_ftm/als_prox/algo_info    
-    chown system system /sys/oppo_ftm/als_prox/ps_min        
-    chown system system /sys/oppo_ftm/als_prox/als_raw            
-    chown system system /sys/oppo_ftm/als_prox/als_calibration  
+    chown system system /sys/oppo_ftm/als_prox/algo_info
+    chown system system /sys/oppo_ftm/als_prox/ps_min
 
     # Touchscreen
     chown system system /proc/touchpanel/double_tap_enable
@@ -180,6 +171,9 @@ service rmt_storage /system/vendor/bin/rmt_storage
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
     shutdown critical
+    
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind    
 
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /system/vendor/bin/qmuxd
@@ -229,8 +223,11 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
-on property:init.svc.vendor.qcamerasvr=running
-    restart media
+on property:init.svc.media=restarting
+    restart qcamerasvr
+
+on property:init.svc.servicemanager=restarting
+    restart qcamerasvr
 
 service qseecomd /system/vendor/bin/qseecomd
     class core
@@ -246,13 +243,12 @@ service perfd /system/vendor/bin/perfd
     writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /system/vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
+    class main
+    user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    group root
     writepid /dev/cpuset/system-background/tasks
 
 service ppd /system/vendor/bin/mm-pp-daemon
@@ -261,7 +257,7 @@ service ppd /system/vendor/bin/mm-pp-daemon
     user system
     socket pps stream 0660 system system
     group system graphics
-    
+
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 
@@ -279,7 +275,7 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
-       
+
 service wcnss-service /system/vendor/bin/wcnss_service
     class late_start
     user system

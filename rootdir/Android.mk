@@ -4,8 +4,6 @@ LOCAL_PATH:= $(call my-dir)
 
 # Init scripts
 
-POWER_SCRIPT := init.qcom.power.v3.rc
-
 include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom-common.rc
 LOCAL_MODULE_TAGS  := optional
@@ -18,7 +16,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.power.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/$(POWER_SCRIPT)
+LOCAL_SRC_FILES    := etc/init.qcom.power.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 

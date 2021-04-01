@@ -32,7 +32,12 @@ on boot
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
 
-   
+    # charger
+    chown root system /sys/class/power_supply/bms/current_now
+    chown root system /sys/class/power_supply/bms/voltage_ocv
+    chmod 0664 /sys/class/power_supply/bms/current_now
+    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
+    
 service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
@@ -44,23 +49,37 @@ service psensord /system/vendor/bin/psensord
     user system
     group system
     oneshot
-       
+    
 on init
+  
 service imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
-    group radio net_raw log diag oem_2950
+     group radio net_raw log diag oem_2950
     writepid /dev/cpuset/system-background/tasks
-
 
 service imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log diag net_admin oem_2950
+     group system wifi radio inet net_raw log diag net_admin oem_2950
     writepid /dev/cpuset/system-background/tasks
     disabled
+    
+service vm_bms /system/vendor/bin/vm_bms
+    class core
+    user root
+    group root
+
+on charger
+    wait /dev/block/bootdevice/by-name/system
+    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
+    chown root system /sys/class/power_supply/bms/current_now
+    chown root system /sys/class/power_supply/bms/voltage_ocv
+    chmod 0664 /sys/class/power_supply/bms/current_now
+    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
+    start vm_bms
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
-    start imsdatadaemo
+    start imsdatadaemon  
