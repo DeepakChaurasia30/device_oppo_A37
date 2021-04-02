@@ -12,6 +12,7 @@ vendor/lib/libaudcal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
+vendor/lib/hw/sound_trigger.primary.msm8916.so
 
 # Bluetooth - from aljeter - PPP29.55-25
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti |45986b1685eb84a02832e43937dd504ca4520855
@@ -108,11 +109,8 @@ vendor/lib/libmmcamera_truly_s5k3h7_new_eeprom.so
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 lib/hw/camera.msm8916.so:vendor/lib/hw/camera.vendor.msm8916.so
 lib/libmmcamera_interface.so:vendor/lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
 lib/libmm-qcamera.so:vendor/lib/libmm-qcamera.so
 lib/libqomx_core.so:vendor/lib/libqomx_core.so
-vendor/lib/libjpegdhw.so
-vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
@@ -135,15 +133,21 @@ vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmipl.so
-vendor/lib/libmmjpeg.so
-vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
-vendor/lib/libqomx_jpegenc.so
-vendor/lib/libqomx_jpegdec.so
 vendor/lib/libmmcamera_faceproc.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
+
+# JPEG  Encoders & decoders --Stock
+vendor/lib/libjpegdhw.so
+vendor/lib/libjpegehw.so
+vendor/lib/libmmjpeg.so
+vendor/lib/libmmqjpeg_codec.so
+vendor/lib/libqomx_jpegdec.so
+vendor/lib/libqomx_jpegenc.so
+lib/libjpeg.so:vendor/lib/libjpeg.so
+lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
 
 # DRM
 bin/qseecomd:vendor/bin/qseecomd
@@ -336,3 +340,6 @@ vendor/bin/psensord
 vendor/lib/libcalmodule_gyroscope.so
 vendor/lib/libcalmodule_memsic.so
 vendor/lib/libcalmodule_yamaha.so
+
+# WCNSS -caf-oppo_msm8939
+vendor/lib/libwcnss_qmi.so
