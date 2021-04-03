@@ -414,8 +414,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service.legacy \
+    android.hardware.wifi@1.0-service \
     hostapd \
+    wificond \
+    wifilogd \
+    libwpa_client \
     wcnss_service \
     wpa_supplicant
 
