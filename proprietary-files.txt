@@ -309,14 +309,6 @@ etc/firmware/venus.mdt:vendor/firmware/venus.mdt
 etc/firmware/a300_pfp.fw:vendor/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw:vendor/firmware/a300_pm4.fw
 
-# Touch
-etc/firmware/tp/15399/15399_Firmware_Biel.img:vendor/firmware/tp/15399_Firmware_Biel.img
-etc/firmware/tp/15399/15399_Firmware_Oflim.img:vendor/firmware/tp/15399_Firmware_Oflim.img
-etc/firmware/tp/15399/15399_Firmware_Truly.img:vendor/firmware/tp/15399_Firmware_Truly.img
-etc/firmware/tp/15399/15399_Limit_Biel.img:vendor/firmware/tp/15399_Limit_Biel.img
-etc/firmware/tp/15399/15399_Limit_Oflim.img:vendor/firmware/tp/15399_Limit_Oflim.img
-etc/firmware/tp/15399/15399_Limit_Truly.img:vendor/firmware/tp/15399_Limit_Truly.img
-
 # Graphics - from channel-QPY30.52-2, paella-5.1.0
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/eglSubDriverAndroid.so |ddc18e828894c731aaa7fddfbf2e8d967ca221f3
