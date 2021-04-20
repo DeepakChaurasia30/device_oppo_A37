@@ -183,6 +183,9 @@ vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmipl.so
 vendor/lib/liboemcamera.so
 vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_tuning.so
+vendor/lib/libmm-omxcore.so
+vendor/lib/libuiblur.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
