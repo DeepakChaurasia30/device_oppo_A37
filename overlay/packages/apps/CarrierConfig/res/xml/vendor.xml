@@ -559,6 +559,15 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="286" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
+ 
+<!-- Add support for some indian sim volte-->
+    <carrier_config mcc="404" mnc="01,02,03,04,05,07,09,10,11,12,13,14,15,16,18,19,20">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
+
+   <carrier_config mcc="404" mnc="22,24,27,30,31,36,40,43,44,45,46,49,50,56,60,67,70">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
 
     <carrier_config mcc="405" mnc="840">
         <boolean name="carrier_vt_available_bool" value="true" />
