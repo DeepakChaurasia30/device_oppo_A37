@@ -12,7 +12,6 @@ vendor/lib/libaudcal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/hw/sound_trigger.primary.msm8916.so
 
 # Bluetooth - from aljeter - PPP29.55-25
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti |45986b1685eb84a02832e43937dd504ca4520855
@@ -42,11 +41,6 @@ vendor/lib/libactuator_dw9718_camera.so
 vendor/lib/libactuator_rohm_bu64243gwz.so
 vendor/lib/libactuator_rohm_bu64243gwz_camcorder.so
 vendor/lib/libactuator_rohm_bu64243gwz_camera.so
-
-# A33f
-vendor/lib/libactuator_dw9714_15035.so
-vendor/lib/libactuator_dw9714_15035_camcorder.so
-vendor/lib/libactuator_dw9714_15035_camera.so
 
 # Camera-chromatix
 vendor/lib/libchromatix_hi545_15399_common.so
@@ -91,52 +85,12 @@ vendor/lib/libchromatix_s5k3h7_15399_snapshot_cmcc.so
 vendor/lib/libchromatix_s5k3h7_15399_snapshot_otp.so
 vendor/lib/libchromatix_s5k3h7_15399_zsl_off.so
 
-# A33f
-vendor/lib/libchromatix_ov5648_15035_common.so
-vendor/lib/libchromatix_ov5648_15035_default_video.so
-vendor/lib/libchromatix_ov5648_15035_default_video_hd.so
-vendor/lib/libchromatix_ov5648_15035_preview.so
-vendor/lib/libchromatix_ov5648_15035_preview_cmcc.so
-vendor/lib/libchromatix_ov5648_15035_preview_fb.so
-vendor/lib/libchromatix_ov5648_15035_small_video.so
-vendor/lib/libchromatix_ov5648_15035_snapshot.so
-vendor/lib/libchromatix_ov5648_15035_snapshot_fb.so
-vendor/lib/libchromatix_ov5648_15035_zsl.so
-vendor/lib/libchromatix_s5k3h7_15035_common.so
-vendor/lib/libchromatix_s5k3h7_15035_default_video.so
-vendor/lib/libchromatix_s5k3h7_15035_preview.so
-vendor/lib/libchromatix_s5k3h7_15035_preview_cmcc.so
-vendor/lib/libchromatix_s5k3h7_15035_small_video.so
-vendor/lib/libchromatix_s5k3h7_15035_snapshot.so
-vendor/lib/libchromatix_s5k3h7_15035_snapshot_cmcc.so
-vendor/lib/libchromatix_s5k3h7_15035_zsl_off.so
-vendor/lib/libchromatix_s5k3h7_8916_common.so
-vendor/lib/libchromatix_s5k3h7_8916_default_video.so
-vendor/lib/libchromatix_s5k3h7_8916_preview.so
-vendor/lib/libchromatix_s5k3h7_8916_preview_cmcc.so
-vendor/lib/libchromatix_s5k3h7_8916_small_video.so
-vendor/lib/libchromatix_s5k3h7_8916_snapshot.so
-vendor/lib/libchromatix_s5k3h7_8916_zsl_off.so
-vendor/lib/libchromatix_s5k4h8_8916_common.so
-vendor/lib/libchromatix_s5k4h8_8916_default_video.so
-vendor/lib/libchromatix_s5k4h8_8916_preview.so
-vendor/lib/libchromatix_s5k4h8_8916_preview_cmcc.so
-vendor/lib/libchromatix_s5k4h8_8916_small_video.so
-vendor/lib/libchromatix_s5k4h8_8916_snapshot.so
-vendor/lib/libchromatix_s5k4h8_8916_zsl_off.so
-
 # Camera -sensor
 vendor/lib/libmmcamera_hi545_15399.so
 vendor/lib/libmmcamera_imx179_15399.so
 vendor/lib/libmmcamera_ov5648_15399.so
 vendor/lib/libmmcamera_s5k3h7_15399.so
 vendor/lib/libmmcamera_s5k3h7_8916.so
-
-# A33f
-vendor/lib/libmmcamera_ov5648_15035.so
-vendor/lib/libmmcamera_s5k3h7_15035.so
-vendor/lib/libmmcamera_s5k3h7_8916.so
-vendor/lib/libmmcamera_s5k4h8_8916.so
 
 # Camera -eeprom
 vendor/lib/libmmcamera_gt24c64a_eeprom.so
@@ -149,9 +103,6 @@ vendor/lib/libmmcamera_sunny_f13s01l_eeprom.so
 vendor/lib/libmmcamera_truly_cm7700_eeprom.so
 vendor/lib/libmmcamera_truly_s5k3h7_eeprom.so
 vendor/lib/libmmcamera_truly_s5k3h7_new_eeprom.so
-
-# A33f
-vendor/lib/libmmcamera_qtech_s5k4h8_eeprom.so
 
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
