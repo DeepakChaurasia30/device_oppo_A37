@@ -185,4 +185,4 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Proprietary Prebuilt
--include vendor/oppo/msm8916/BoardConfigVendor.mk
+-include vendor/oppo/A37/BoardConfigVendor.mk

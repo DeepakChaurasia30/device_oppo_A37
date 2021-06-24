@@ -18,7 +18,7 @@
 
 set -e
 
-DEVICE=msm8916
+DEVICE=A37
 VENDOR=oppo
 
 # Load extract_utils and do some sanity checks
