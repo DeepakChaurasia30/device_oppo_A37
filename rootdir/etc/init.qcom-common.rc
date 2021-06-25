@@ -40,9 +40,21 @@ on fs
 
     restorecon_recursive /persist
 
+on post-fs
+   start vendor.qseecomd
+
 on post-fs-data
-    # Create folder for mm-qcamera-daemon
-    mkdir /data/misc/camera 0770 camera camera
+    # Add a cpuset for the camera daemon
+    # We want all cores for camera
+   mkdir /dev/cpuset/camera-daemon
+   write /dev/cpuset/camera-daemon/cpus 0-3
+   write /dev/cpuset/camera-daemon/mems 0
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+   chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+    #Create folder for mm-qcamera-daemon
+    mkdir /data/vendor/camera 0770 camera camera
 
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
@@ -216,24 +228,24 @@ service charger /system/bin/charger
     critical
     seclabel u:r:charger:s0
 
-# start camera server as daemon
-service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
+#start camera server as daemon
+service vendor.qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
-    writepid /dev/cpuset/camera-daemon/tasks
+    writepid /dev/cpuset/camera-daemon/tasks /dev/stune/top-app/tasks
 
 on property:init.svc.media=restarting
-    restart qcamerasvr
+     restart vendor.qcamerasvr
 
 on property:init.svc.servicemanager=restarting
-    restart qcamerasvr
+     restart vendor.qcamerasvr
 
-service qseecomd /system/vendor/bin/qseecomd
-    class core
-    user root
-    group root
-    writepid /dev/cpuset/system-background/tasks
+service vendor.qseecomd /vendor/bin/qseecomd
+   class core
+   user root
+   group root
+   writepid /dev/cpuset/system-background/tasks
 
 service perfd /system/vendor/bin/perfd
     class main
@@ -253,10 +265,11 @@ service thermal-engine /system/vendor/bin/thermal-engine
 
 service ppd /system/vendor/bin/mm-pp-daemon
     class late_start
-    disabled
     user system
-    socket pps stream 0660 system system
     group system graphics
+    socket pps stream 0660 system system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
