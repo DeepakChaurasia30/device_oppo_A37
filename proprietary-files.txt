@@ -1,6 +1,8 @@
-# ADSP
-bin/adsprpcd:vendor/bin/adsprpcd
+# ADSP --msm8916_64-dump
+vendor/bin/adsprpcd
+vendor/lib/libadsp_default_listener.so
 vendor/lib/libadsprpc.so
+vendor/lib/libcdsprpc.so
 vendor/lib/libfastcvopt.so
 
 # Audio
@@ -134,9 +136,6 @@ vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmipl.so
 vendor/lib/liboemcamera.so
 vendor/lib/libmmcamera_faceproc.so
-vendor/lib/libmmcamera_tuning.so
-vendor/lib/libmm-omxcore.so
-vendor/lib/libuiblur.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
@@ -157,6 +156,17 @@ vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
+
+# IOP-HAL --Aljeter OPP27.91-143
+vendor/bin/hw/vendor.qti.hardware.iop@1.0-service
+vendor/etc/init/vendor.qti.hardware.iop@1.0-service.rc
+vendor/lib/libqti-iopd-client.so
+vendor/lib/libqti-iopd.so
+vendor/lib/vendor.qti.hardware.iop@1.0.so
+vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.iop@2.0.so
+vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
+ 
 
 # GPS - from crackling
 vendor/lib/libloc_api_v02.so|74df1667c42701ef550ba73db6c5ae63542913ac
@@ -193,7 +203,7 @@ vendor/lib/libmm-als.so|7ca49d1a2e9139182d4069b1f305312966da9983
 vendor/lib/libmm-disp-apis.so|342252fd53b5813cdd47a2bc01c91d62cdb21f1b
 vendor/lib/libmm-qdcm.so|00413d3c2e3b6a0b43f1a315af33592bec1d952c
 
-# Battery
+# Battery --msm8916_64-dump
 vendor/bin/vm_bms
 
 # Qualcomm framework - from jalebi
