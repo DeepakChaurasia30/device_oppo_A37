@@ -357,9 +357,8 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8916 \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power-service-qti \
+    android.hardware.power.stats@1.0-service.mock
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.max_starting_bg=8
