@@ -150,8 +150,8 @@ on boot
     chown bluetooth bluetooth /dev/ttyHS2
 
     # Double tap to wake 
-    chown system system /sys/android_touch/doubletap2wake
-    chmod 0660  /sys/android_touch/doubletap2wake
+    chown system system /proc/touchpanel/double_tap_enable
+    chmod 0660  /proc/touchpanel/double_tap_enable
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 2770 radio radio
