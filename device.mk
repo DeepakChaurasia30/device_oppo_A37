@@ -293,6 +293,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.ssr.rc \
     init.qcom.usb.rc \
+    init.qcom.rc \
     ueventd.qcom.rc
 
 # 1) Baseband version fix, 2) zram setup,
