@@ -287,12 +287,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.qcom-common.rc \
-    init.qcom.power.rc \
-    init.qcom.usb.rc \
-    ueventd.qcom.rc \
     fstab.qcom \
-    init.qcom.rc
+    init.target.rc \
+    init.qcom.rc \
+    init.qcom.power.rc \
+    init.qcom.ssr.rc \
+    init.qcom.usb.rc \
+    ueventd.qcom.rc
+
+# 1) Baseband version fix, 2) zram setup,
+# 3) boosting after boot up, 4) set device dependement props 
+PRODUCT_PACKAGES += \
+    set_baseband.sh \
+    set_zram.sh \
+    init.boot_boost.sh
+
+# First stage init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.ramdisk.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # For config.fs
 PRODUCT_PACKAGES += \
