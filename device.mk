@@ -404,7 +404,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.msm8916
+    android.hardware.light@2.0-service.oppo_msm8916
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -423,7 +423,6 @@ PRODUCT_COPY_FILES += \
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
    persist.fuse_sdcard=true
-
 
 # Permissions
 PRODUCT_COPY_FILES += \
