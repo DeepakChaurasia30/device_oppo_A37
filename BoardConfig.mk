@@ -167,7 +167,7 @@ BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
     
 # SELinux
-include device/qcom/sepolicy-legacy/sepolicy.mk
+include device/qcom/sepolicy-legacy-um/sepolicy.mk
     
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
