@@ -17,8 +17,11 @@ DEVICE_PATH := device/oppo/A37
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
-TARGET_BOARD_PLATFORM := msm8916
 TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8916
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
 
 # Temp build fix
 BUILD_BROKEN_PHONY_TARGETS := true
@@ -33,7 +36,10 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_CORTEX_A53 := true
 TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_CPU_FEATURES := div,atomic_ldrd_strd
 
 # Binder
 TARGET_USES_64_BIT_BINDER := true
@@ -74,22 +80,20 @@ TARGET_USES_MKE2FS := true
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := firmware persist
 
-# Dexpreopt
+# Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
+    endif
   endif
 endif
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-WITH_DEXPREOPT_DEBUG_INFO := false
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_msm8916
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_RECOVERY_DEVICE_MODULES := //$(DEVICE_PATH):libinit_msm8916
-
-# Security Patch Level
-VENDOR_SECURITY_PATCH := 2016-01-01
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -124,10 +128,13 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
+QCOM_BT_USE_BTNV := true
 QCOM_BT_READ_ADDR_FROM_PROP := true
 
-# Touchscreen
+# Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
+TARGET_USES_INTERACTION_BOOST := true
+
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -139,8 +146,10 @@ BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 
-# Media extentions
+# Media
+BOARD_SECCOMP_POLICY := $(PLATFORM_PATH)/seccomp
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Camera
@@ -151,6 +160,7 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 	/system/bin/mediaserver=22 \
+        /system/bin/cameraserver=22 \
 	/system/vendor/bin/mm-qcamera-daemon=22
 
 # GPS
