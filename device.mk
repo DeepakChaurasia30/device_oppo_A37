@@ -58,6 +58,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
      persist.hwc.mdpcomp.enable=true \
      sys.hwc.gpu_perf_mode=1
 
+
+# Doze mode
+PRODUCT_PACKAGES += \
+    OppoDoze
+
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true 
