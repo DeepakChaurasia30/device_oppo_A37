@@ -256,6 +256,10 @@ service charger /system/bin/charger
     capabilities SYS_BOOT
     critical
 
+service charger /sbin/healthd -c
+    class charger
+    critical
+    seclabel u:r:healthd:s
 
 #start camera server as daemon
 service vendor.qcamerasvr /system/vendor/bin/mm-qcamera-daemon
