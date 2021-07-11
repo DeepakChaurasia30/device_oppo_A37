@@ -29,10 +29,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class PickupSensor implements SensorEventListener {
+public class TiltSensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "PickupSensor";
+    private static final String TAG = "TiltSensor";
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
 
@@ -43,10 +43,10 @@ public class PickupSensor implements SensorEventListener {
 
     private long mEntryTimestamp;
 
-    public PickupSensor(Context context) {
+    public TiltSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = Utils.findSensorWithType(mSensorManager, "com.oneplus.sensor.pickup");
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
