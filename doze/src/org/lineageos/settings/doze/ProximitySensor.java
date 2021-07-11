@@ -28,10 +28,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class PocketSensor implements SensorEventListener {
+public class ProximitySensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "PocketSensor";
+    private static final String TAG = "ProximitySensor";
 
     // Maximum time for the hand to cover the sensor: 1s
     private static final int HANDWAVE_MAX_DELTA_NS = 1000 * 1000 * 1000;
@@ -47,10 +47,10 @@ public class PocketSensor implements SensorEventListener {
     private boolean mSawNear = false;
     private long mInPocketTime = 0;
 
-    public PocketSensor(Context context) {
+    public ProximitySensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = Utils.findSensorWithType(mSensorManager, "com.oneplus.sensor.pocket");
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY, false);
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -60,7 +60,7 @@ public class PocketSensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        boolean isNear = event.values[0] == 1;
+        boolean isNear = event.values[0] < mSensor.getMaximumRange();
         if (mSawNear && !isNear) {
             if (shouldPulse(event.timestamp)) {
                 Utils.launchDozePulse(mContext);
