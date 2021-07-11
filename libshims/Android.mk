@@ -22,7 +22,6 @@ LOCAL_SRC_FILES := \
     atomic.cpp \
     android/sensor.cpp \
     gui/SensorManager.cpp \
-    ui/GraphicBuffer.cpp \
     MediaCodec.cpp \
     AudioSource.cpp \
     MetaData.cpp \
@@ -46,3 +45,14 @@ LOCAL_MODULE := libcamera_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := \
+    ui/GraphicBuffer.cpp 
+
+LOCAL_SHARED_LIBRARIES := libui
+LOCAL_MODULE := libui_shim
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY

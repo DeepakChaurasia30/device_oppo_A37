@@ -205,6 +205,7 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     libshim_camera \
     libcamera_shim \
+    libui_shim \
     camera.msm8916 \
     Snap
 
