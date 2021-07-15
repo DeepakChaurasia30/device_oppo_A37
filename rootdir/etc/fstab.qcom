@@ -12,6 +12,12 @@
 /dev/block/bootdevice/by-name/recovery       /recovery    emmc    defaults                                                    defaults
 /dev/block/bootdevice/by-name/misc           /misc        emmc    defaults                                                    defaults
 /dev/block/bootdevice/by-name/modem          /firmware    vfat    ro,shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337    wait
+# OPPO Partitions
+/dev/block/bootdevice/by-name/reserve4	     /reserve4    emmc flags=display="RESERVE4";backup=1;
+/dev/block/bootdevice/by-name/oppodycnvbk    /oppodycnvbk emmc flags=display="OPPODYCNVBK";backup=1;
+/dev/block/bootdevice/by-name/oppostanvbk    /static_nv_bk emmc flags=display="OPPOSTANVBK";backup=1;
+/dev/block/bootdevice/by-name/modemst1	     /modem_st1   emmc flags=display="MODEM1";backup=1;
+/dev/block/bootdevice/by-name/modemst2	     /modem_st2   emmc flags=display="MODEM2";backup=1;
 
 /devices/soc.0/7864900.sdhci/mmc_host*       auto         auto    defaults                                                    voldmanaged=sdcard1:auto
 /devices/platform/msm_hsusb*                 auto         auto    defaults                                                    voldmanaged=usbdisk:auto
