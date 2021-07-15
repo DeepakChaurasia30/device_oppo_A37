@@ -17,7 +17,7 @@ service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user radio
     socket ims_qmid stream 0660 system radio
-    group radio vendor_qti_diag log
+    group radio log diag
 
 service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
