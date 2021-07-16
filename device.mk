@@ -360,6 +360,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.min_freq_0=800000 \
      ro.core_ctl_min_cpu=0 \
      ro.core_ctl_max_cpu=2
+
+# GPS
+PRODUCT_PACKAGES += \
+	libcurl
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/apdr.conf:system/vendor/etc/apdr.conf \
