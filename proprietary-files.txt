@@ -389,7 +389,3 @@ vendor/lib/libcalmodule_yamaha.so
 
 # WCNSS -caf-oppo_msm8939
 vendor/lib/libwcnss_qmi.so
-
-# GraphicBuffer
-lib/libui.so:lib/libui.so
-
