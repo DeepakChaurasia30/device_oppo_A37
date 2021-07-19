@@ -82,7 +82,6 @@ ro.product.first_api_level=22
 
 # Wifi
 wifi.interface=wlan0
-wifi.direct.interface=p2p0
 
 # Radio
 persist.data.target=dpm3
