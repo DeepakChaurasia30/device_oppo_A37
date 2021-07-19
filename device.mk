@@ -222,7 +222,6 @@ PRODUCT_PACKAGES += \
 # 1) Baseband version fix, 2) zram setup,
 # 3) boosting after boot up, 4) set device dependement props 
 PRODUCT_PACKAGES += \
-    set_baseband.sh \
     set_zram.sh \
     init.boot_boost.sh
 
