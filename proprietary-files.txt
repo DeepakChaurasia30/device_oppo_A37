@@ -135,7 +135,7 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmipl.so
 vendor/lib/liboemcamera.so
-vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_faceproc.so |8e6a95d0dd0d282f96cc905c11c1a738
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
@@ -178,6 +178,7 @@ vendor/bin/location_hal_test:vendor/bin/location_hal_test
 vendor/bin/lowi-server:vendor/bin/lowi-server
 vendor/bin/lowi_test:vendor/bin/lowi_test
 vendor/bin/xtra-daemon:vendor/bin/xtra-daemon
+bin/slim_daemon:vendor/bin/slim_daemon
 vendor/bin/xtwifi-client:vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent:vendor/bin/xtwifi-inet-agent
 vendor/etc/init/vendor.qti.gnss@1.0-service.rc:vendor/etc/init/vendor.qti.gnss@1.0-service.rc
@@ -235,6 +236,9 @@ vendor/lib/libOmxQcelp13Dec.so
 # Perf - from jalebi
 vendor/bin/perfd|5e31de336247378b0674b4d65494567ab76c190c
 vendor/lib/libqti-perfd-client.so|90b2007264bcda7fc706fd55becdea4c6b999233
+vendor/bin/msm_irqbalance
+vendor/etc/msm_irqbalance.conf
+
 
 # Postprocessing - from jalebi
 bin/mm-pp-daemon:vendor/bin/mm-pp-daemon|56777bd6e5023b2d39efa3a3a7df11af3a06aa73
@@ -245,8 +249,8 @@ vendor/lib/libmm-als.so|7ca49d1a2e9139182d4069b1f305312966da9983
 vendor/lib/libmm-disp-apis.so|342252fd53b5813cdd47a2bc01c91d62cdb21f1b
 vendor/lib/libmm-qdcm.so|00413d3c2e3b6a0b43f1a315af33592bec1d952c
 
-# Battery --msm8916_64-dump
-vendor/bin/vm_bms
+# Battery --A6000
+vendor/bin/vm_bms |a5eb58ec7103f1243fa8a3019eecc8c3
 
 # Qualcomm framework - from jalebi
 bin/irsc_util:vendor/bin/irsc_util|3e9ca860ef26dba7024812c378b6c5cd15b879aa
