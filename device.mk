@@ -48,29 +48,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-     debug.composition.type=c2d \
-     debug.enable.sglscale=1 \
-     debug.hwui.use_buffer_age=false \
-     debug.mdpcomp.idletime=600 \
-     ro.opengles.version=196608 \
-     persist.hwc.mdpcomp.enable=true \
-     sys.hwc.gpu_perf_mode=1
-
-
 # Doze mode
 PRODUCT_PACKAGES += \
     OppoDoze
-
-# Memory optimizations
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true 
-
-# Screen density
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=280 \
-    persist.graphics.vulkan.disable=true
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -154,23 +134,6 @@ PRODUCT_COPY_FILES += \
    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
    
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-      af.fast_track_multiplier=1 \
-      audio.deep_buffer.media=true \
-      audio.offload.min.duration.secs=30 \
-      audio.offload.video=true \
-      persist.vendor.audio.fluence.voicecall=true \
-      persist.vendor.audio.fluence.voicerec=true \
-      persist.vendor.audio.fluence.speaker=false \
-      ro.vendor.audio.sdk.fluencetype=fluence \
-      vendor.audio.offload.buffer.size.kb=64 \
-      vendor.audio.offload.gapless.enabled=true \
-      vendor.audio_hal.period_size=192 \
-      vendor.voice.path.for.pcm.voip=true \
-      ro.config.media_vol_steps=25 \
-      ro.config.vc_call_vol_steps=7
-   
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -211,32 +174,11 @@ PRODUCT_PACKAGES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml
-
-# Camera-Prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.cpp.duplication=false \
-    persist.camera.hal.debug.mask=0
-    
-# Surfaceflinger
-PRODUCT_PROPERTY_OVERRIDES += \
-   ro.surface_flinger.max_frame_buffer_acquired_buffers=3    
+    frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml  
 
 # vendor_init
 PRODUCT_PACKAGES += \
     libinit_msm8916
-
-# NITZ
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.rild.nitz_plmn="" \
-    persist.rild.nitz_long_ons_0="" \
-    persist.rild.nitz_long_ons_1="" \
-    persist.rild.nitz_long_ons_2="" \
-    persist.rild.nitz_long_ons_3="" \
-    persist.rild.nitz_short_ons_0="" \
-    persist.rild.nitz_short_ons_1="" \
-    persist.rild.nitz_short_ons_2="" \
-    persist.rild.nitz_short_ons_3=""
 
 # Charger images
 PRODUCT_PACKAGES += charger_res_images
@@ -253,14 +195,6 @@ PRODUCT_COPY_FILES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
-# Bluetooth Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    bluetooth.hfp.client=1 \
-    vendor.qcom.bluetooth.soc=pronto \
-    ro.bluetooth.hfp.ver=1.6 \
-    ro.qualcomm.bt.hci_transport=smd \
-    ro.bluetooth.dun=true \
-    ro.bluetooth.sap=true 
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -273,10 +207,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += InProcessNetworkStack
 PRODUCT_DISABLE_SCUDO := true
-
-# Google Assistant
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opa.eligible_device=true
 
 # Init scripts
 PRODUCT_PACKAGES += \
@@ -329,11 +259,6 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
-    
-# Media-Prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    mm.enable.smoothstreaming=true \
-    media.aac_51_output_enabled=true 
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -350,16 +275,6 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.max_starting_bg=8
-
-# Perf
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.vendor.extension_library=libqti-perfd-client.so \
-     ro.min_freq_0=800000 \
-     ro.core_ctl_min_cpu=0 \
-     ro.core_ctl_max_cpu=2
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -378,10 +293,7 @@ PRODUCT_COPY_FILES += \
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-    
-# First api level, device has been commercially launched
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.first_api_level=22
+
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -430,19 +342,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/ft5x06_ts.kl:system/usr/keylayout/ft5x06_ts.kl\
     $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
-# Storage
-PRODUCT_PROPERTY_OVERRIDES += \
-   persist.fuse_sdcard=true
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
-
-# Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    wifi.direct.interface=p2p0
 
 # WiFi HAL
 PRODUCT_PACKAGES += \
@@ -492,24 +395,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
 
-# Radio
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.target=dpm3 \
-    persist.data.qmi.adb_logmask=0 \
-    persist.radio.multisim.config=dsds \
-    persist.radio.custom_ecc=1 \
-    persist.radio.ecc_hard_1=112,911,110,122,119,120,000,118 \
-    persist.radio.ecc_hard_count=1 \
-    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
-    ril.subscription.types=RUIM \
-    telephony.lteOnCdmaDevice=1
-    
-# Volte
-PRODUCT_PROPERTY_OVERRIDES += \
-     persist.dbg.ims_volte_enable=1 \
-     persist.dbg.volte_avail_ovr=1 \
-     persist.dbg.wfc_avail_ovr=1
-    
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy

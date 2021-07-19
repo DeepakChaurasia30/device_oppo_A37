@@ -106,6 +106,9 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 PRODUCT_VENDOR_MOVE_ENABLED := true
 
+# System properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Graphics
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
