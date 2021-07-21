@@ -140,6 +140,31 @@ vendor/lib/libmmcamera_faceproc.so |8e6a95d0dd0d282f96cc905c11c1a738
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
 
+# Camera-exception
+vendor/lib/libactuator_dw9714_15035.so
+vendor/lib/libactuator_dw9714_15035_camcorder.so
+vendor/lib/libactuator_dw9714_15035_camera.so
+vendor/lib/libchromatix_ov5648_15035_common.so
+vendor/lib/libchromatix_ov5648_15035_default_video.so
+vendor/lib/libchromatix_ov5648_15035_default_video_hd.so
+vendor/lib/libchromatix_ov5648_15035_preview.so
+vendor/lib/libchromatix_ov5648_15035_preview_cmcc.so
+vendor/lib/libchromatix_ov5648_15035_preview_fb.so
+vendor/lib/libchromatix_ov5648_15035_small_video.so
+vendor/lib/libchromatix_ov5648_15035_snapshot.so
+vendor/lib/libchromatix_ov5648_15035_snapshot_fb.so
+vendor/lib/libchromatix_ov5648_15035_zsl.so
+vendor/lib/libchromatix_s5k3h7_15035_common.so
+vendor/lib/libchromatix_s5k3h7_15035_default_video.so
+vendor/lib/libchromatix_s5k3h7_15035_preview.so
+vendor/lib/libchromatix_s5k3h7_15035_preview_cmcc.so
+vendor/lib/libchromatix_s5k3h7_15035_small_video.so
+vendor/lib/libchromatix_s5k3h7_15035_snapshot.so
+vendor/lib/libchromatix_s5k3h7_15035_snapshot_cmcc.so
+vendor/lib/libchromatix_s5k3h7_15035_zsl_off.so
+vendor/lib/libmmcamera_ov5648_15035.so
+vendor/lib/libmmcamera_s5k3h7_15035.so
+
 # JPEG  --yu_jalebi
 lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
 vendor/lib/libjpegdhw.so
