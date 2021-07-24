@@ -135,7 +135,7 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmipl.so
 vendor/lib/liboemcamera.so
-vendor/lib/libmmcamera_faceproc.so |8e6a95d0dd0d282f96cc905c11c1a738
+vendor/lib/libmmcamera_faceproc.so |ac49bcc1aa20ff9f2c118f6c233b658f93543202
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
@@ -275,7 +275,7 @@ vendor/lib/libmm-disp-apis.so|342252fd53b5813cdd47a2bc01c91d62cdb21f1b
 vendor/lib/libmm-qdcm.so|00413d3c2e3b6a0b43f1a315af33592bec1d952c
 
 # Battery --A6000
-vendor/bin/vm_bms |a5eb58ec7103f1243fa8a3019eecc8c3
+vendor/bin/vm_bms |19406da78d9cbdb8eb1a452c6d89728595801fad
 
 # Qualcomm framework - from jalebi
 bin/irsc_util:vendor/bin/irsc_util|3e9ca860ef26dba7024812c378b6c5cd15b879aa
