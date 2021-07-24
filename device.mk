@@ -327,14 +327,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oppo_msm8916
 
-# DRM
-PRODUCT_PACKAGES += \
-    drm.service.enabled=true
-    
-# Time services
-PRODUCT_PACKAGES += \
-  persist.timed.enable=true    
-
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \

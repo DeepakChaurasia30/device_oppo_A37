@@ -62,7 +62,7 @@ ro.bluetooth.sap=true
 ro.opa.eligible_device=true
 
 # Netflix
-    ro.netflix.bsp_rev=Q660-13149-1
+ro.netflix.bsp_rev=Q660-13149-1
 
 # Media-Prop
 mm.enable.smoothstreaming=true
@@ -97,5 +97,11 @@ telephony.lteOnCdmaDevice=1
 # Volte
 persist.dbg.ims_volte_enable=1
 persist.dbg.volte_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
+persist.dbg.wfc_avail_ovr=0
+
+# DRM
+drm.service.enabled=true
+    
+# Time services
+persist.timed.enable=true 
 
