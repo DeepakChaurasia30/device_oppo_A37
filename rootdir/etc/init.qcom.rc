@@ -112,7 +112,7 @@ on early-boot
     setrlimit 8 67108864 67108864
     write /sys/kernel/boot_adsp/boot 1
 
-    start vendor.qseecomd
+    start qseecomd
 
 on boot
 
@@ -275,7 +275,7 @@ on property:init.svc.servicemanager=restarting
     restart vendor.qcamerasvr
 
 
-service vendor.qseecomd /system/vendor/bin/qseecomd
+service qseecomd /system/vendor/bin/qseecomd
    class core
    user root
    group root
