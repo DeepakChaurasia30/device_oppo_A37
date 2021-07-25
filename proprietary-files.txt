@@ -5,12 +5,23 @@ vendor/lib/libadsprpc.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libfastcvopt.so
 
-# Audio
+# Audio - from LA.BR.1.2.9.1-02310-8x16.0
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
+vendor/lib/libacdbmapper.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
+vendor/lib/libadm.so
 vendor/lib/libaudcal.so
+vendor/lib/libFlacSwDec.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libdrc.so
+vendor/lib/libsurround_3mic_proc.so
+vendor/lib/libsurround_proc.so
+vendor/lib/libtinycompress_vendor.so
+
+# Soundfx
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
