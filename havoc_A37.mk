@@ -1,5 +1,5 @@
 # Copyright (C) 2015-2017 The CyanogenMod Project
-# Copyright (C) 2017, The LineageOS Project
+# Copyright (C) 2017, The havocOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
 $(call inherit-product, device/oppo/A37/device.mk)
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := a37f,A37f,A37fw,a37fw,msm8916,msm8939
@@ -27,7 +27,7 @@ TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 TARGET_VENDOR := Oppo
 PRODUCT_DEVICE := A37
-PRODUCT_NAME := lineage_A37
+PRODUCT_NAME := havoc_A37
 BOARD_VENDOR := Oppo
 PRODUCT_BRAND := Oppo
 PRODUCT_MODEL := A37
@@ -40,5 +40,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := OPPO/A37fw/A37f:5.1.1/LMY47V/1519717163:user/release-keys
 
-# GMS
-PRODUCT_GMS_CLIENTID_BASE := android-oppo
